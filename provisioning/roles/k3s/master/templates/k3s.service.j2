@@ -5,7 +5,8 @@ After=network.target
 [Service]
 ExecStartPre=-/sbin/modprobe br_netfilter
 ExecStartPre=-/sbin/modprobe overlay
-ExecStart=/usr/local/bin/k3s server
+ExecStartPre=-/sbin/modprobe nf_conntrack
+ExecStart=/usr/local/bin/k3s server --cluster-secret {{ cluster_secret }} --tls-san {{ ansible_hostname }} --node-ip {{ master_ip }} --node-name {{ ansible_hostname }}
 KillMode=process
 Delegate=yes
 LimitNOFILE=infinity

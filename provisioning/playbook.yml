@@ -1,9 +1,10 @@
 ---
 
-- hosts: k3s-cluster
+- hosts: all
   gather_facts: yes
   become: yes
   roles:
+    - { role: hosts }
     - { role: download }
 
 

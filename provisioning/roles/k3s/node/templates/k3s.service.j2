@@ -3,7 +3,8 @@ Description=Lightweight Kubernetes
 Documentation=https://k3s.io
 After=network.target
 [Service]
-ExecStart=/usr/local/bin/k3s agent --server https://{{ master_ip }}:6443 --token {{ hostvars[groups['master'][0]]['token'] }}
+ExecStartPre=-/sbin/modeproble nf_conntrack
+ExecStart=/usr/local/bin/k3s agent --server https://{{ master_ip }}:6443 --cluster-secret {{ cluster_secret }} --token {{ hostvars[groups['master'][0]]['token'] }} --node-name {{ ansible_hostname }}
 KillMode=process
 Delegate=yes
 LimitNOFILE=infinity
