@@ -17,7 +17,7 @@
   yum:
     name: ['libselinux-python','libsemanage-python']
     state: latest
-    
+
 - name: Disable SELinux at next reboot
   selinux:
     state: disabled
@@ -26,3 +26,16 @@
   command: setenforce 0
   ignore_errors: true
   changed_when: false
+
+- name: make .ssh direcotry
+  file:
+    path: "/home/vagrant/.ssh"
+    state: directory
+- name: create authorized keys  file
+  file:
+    path: "/home/vagrant/.ssh/authorized_keys"
+    state: touch
+- name: put pubkey
+  lineinfile:
+    path: "/home/vagrant/.ssh/authorized_keys"
+    line: "{{ ssh_public_key }}"

@@ -1,4 +1,5 @@
 k3s_version: v0.9.1
 systemd_dir: /etc/systemd/system
 master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['master'][0]) }}"
-cluster_secret: "th1s13k3s"  
+cluster_secret: "th1s13k3s"
+ssh_public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEsOmIvJ5QrOV44GETzYzLRy+WjuThnOxk3xs5bqI4ULLMvjkdDYnyT+zoRF0/capooWfNVs+fbN0hiBMI4SVb172+EsIJaRcfTXuy53O1ZMsQ7nbqkNOrdOHUtMOdn/pgq09yXBqA1PuWMdKBpjxW9cgaJCG4mW5B6UUliwyzI5L/25rvzZrfS5Q2h6JaoL3K5z9ROBf1ubtGBUwtxxkYaYkyNwx10nZPesO/gAA7puPvK67Iyx5BdTMr4byOyfRyKWUgbLpX1DoTXVx5WTPlb1+kw2r+sAgf/Xlzd/2FaVwBFWrjrZJKr2Q4Dp5s/pjZtXczcbNtmlcteWagRXmt dwang@dwang-desk
