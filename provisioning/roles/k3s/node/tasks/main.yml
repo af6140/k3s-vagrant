@@ -1,7 +1,6 @@
 ---
 
 - name: Copy K3s service file
-  sudo: yes
   template:
     src: "k3s.service.j2"
     dest: "{{ systemd_dir }}/k3s.service"
@@ -10,7 +9,6 @@
     mode: 0755
 
 - name: Enable and check K3s service
-  sudo: yes
   systemd:
     name: k3s
     daemon_reload: yes
